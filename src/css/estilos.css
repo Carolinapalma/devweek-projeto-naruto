@@ -1,0 +1,159 @@
+body{
+    font-family: 'NJA', Courier, monospace;
+    background: var(--cor-secundaria);
+}
+
+body::before{
+    content: '';
+    background-image: url("../imagens/00konoha-bg.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+main{
+    max-height: 100vh; /*minimo da altura da tela 100%*/
+    display: flex;
+    flex-direction: column;
+		justify-content: center;
+}
+
+.cabecalho {
+    z-index: 1; /*folha para ficar por cima do fundo*/
+    display: flex;
+    justify-content: center; /*centraliza horizontal*/ 
+}
+
+.cabecalho .titulo{
+    color: var(--cor-titulo-fraco);
+    text-transform: uppercase; /*maiusculo*/
+    font-size: 70px; /*tamanho do texto*/
+    line-height: 200px; /*altura da linha*/
+    -webkit-text-stroke: 2px var(--cor-titulo-forte);
+}
+
+.selecao-de-personagens{
+    display: flex;
+    align-items: center; /*centraliza vertical*/
+    justify-content: center; /*centraliza horizontal*/
+}
+
+.selecao-de-personagens .personagem-grande{ /*posicionamento*/
+    text-align: center;
+    width: 30%; /*valor do tamanho total da tela*/
+    height: 70vh;
+    position: relative; /*index padrao reset - vem pra frente*/
+}
+
+.selecao-de-personagens .personagem-grande img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);   
+		max-height: 110%;
+}
+
+.selecao-de-personagens .personagem-grande .nome::before{
+    content: '';
+    height: 28px;
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+}
+
+.selecao-de-personagens .personagem-grande .nome h2{
+    color: var(--cor-padrao);
+    font-family: 'DFD', sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    font-size: 50px;
+}
+
+.selecao-de-personagens .personagem-grande.personagem-jogador-1 .nome::before{
+    background-color: var(--cor-azul-principal);
+    left: 0;
+}
+.selecao-de-personagens .personagem-grande.personagem-jogador-2 .nome::before{
+    background-color: var(--cor-vermelha-principal);
+    right: 0;    
+}
+
+.selecao-de-personagens .lista-de-personagens{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    justify-content: center;
+    gap: 12px;
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem{
+    border: 2px solid var(--cor-padrao);
+    background-color: var(--cor-padrao);
+    width: 26%;
+    height: 160px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 5px;
+    position: relative;
+    transition: 0.15s ease-in-out;    
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem.selecionado{
+    border: 2px solid var(--cor-azul-media);
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem:hover{
+    animation: c-glowing-blue .3s ease-in-out infinite;
+    animation-direction: alternate;
+    transform: scale(1.07);
+    z-index: 2;
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem.jogador-2-selecionado {
+	border: 2px solid var(--cor-vermelha-fraca);
+	animation: c-glowing-red .3s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem.jogador-2-selecionado:hover {
+	animation: c-glowing-red .3s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+.selecao-de-personagens .lista-de-personagens .personagem .tag{
+	display: none;
+	font-family: 'Times New Roman', Times, serif;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	color: var(--cor-azul-media);
+	transition: opacity .3s ease-in-out;
+	animation: alternate;
+	animation: text-glowing-blue .3s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+.selecao-de-personagens .lista-de-personagens  .personagem.selecionado .tag {
+	display: block;
+	animation: text-glowing-blue .3s ease-in-out infinite;
+	animation-direction: alternate;
+}
+
+.selecao-de-personagens .lista-de-personagens  .personagem.jogador-2-selecionado .tag {
+	display: block;
+	animation: text-glowing-red .3s ease-in-out infinite;
+	animation-direction: alternate;
+}

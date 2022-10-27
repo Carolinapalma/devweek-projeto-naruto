@@ -1,0 +1,52 @@
+@media (max-width: 1280px){ /*para pc*/
+
+	.cabecalho .titulo{
+        font-size: 70px;
+    }
+
+    .selecao-de-personagens .lista-de-personagens{
+        max-width: 480px;
+    }
+    .selecao-de-personagens .lista-de-personagens .personagem{
+        width: 100px;
+        height: 100px;
+    }
+		.selecao-de-personagens .personagem-grande{
+		width: 50%; 
+    height: 50vh;
+		}
+}
+
+@media (max-width: 767px){
+	 /*para celular*/
+
+
+    body::before{ /*trocar o gif de fundo por imagem normal*/
+        background-image: url(../imagens/01ichirako.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 2;
+    }
+
+    main{
+        padding: 0 5px;
+        justify-content: start; /*centraliza do começo, e não no meio do celular*/
+    }
+
+    .cabecalho .titulo{
+        font-size: 60px;
+    }
+		.selecao-de-personagens{
+			flex-wrap: wrap;
+		}
+    .selecao-de-personagens .personagem-grande{
+        display: none; /*nao aparecer personagem grande*/
+    }
+}
+
+@media(max-width: 360px){
+    .cabecalho .titulo{
+        font-size: 22px;
+    }
+}
